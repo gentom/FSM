@@ -3,11 +3,17 @@
 from random import randint, random, choice
 
 # Finite State Machine. Work In Progress.
-class StateMachine():
+
+class State:
     def __init__(self, state):
         self.state = state
-        self.state_num = len(state)
-        self.current_state = state[0]
+
+
+class Machine():
+    def __init__(self, states):
+        self.states = states
+        self.state_num = len(states)
+        self.current_state = states[0]
 
     def get_current(self):
         return self.current_state
