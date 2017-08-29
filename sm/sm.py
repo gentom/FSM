@@ -5,18 +5,12 @@ from random import randint, random, choice
 # Finite State Machine. Work In Progress.
 
 class StateMachine:
-    def __init__(self, states, t_matrix, step):
+    def __init__(self, states, t_matrix):
         self.states = states
-        self.state_num = len(states)
-        self.current_state = states[0]
         self.t_matrix = t_matrix
-        self.step = step
-
-    def get_current(self):
-        return self.current_state
     
     def transitioner(self):
-        pass
+        return self.choose_with_w(self.states, self.t_matrix)
     
     def choose_with_w(self, states, weights):
         weights = [sum(weights[:x+1]) for x in range(len(weights))]
@@ -27,3 +21,10 @@ class StateMachine:
             if rand < weight:
                 return state
         return None
+
+if __name__ == '__main__':
+    states = ['state1','state2','state3']
+    t_matrix = [0.6,0.2,0.2]
+    sm = StateMachine(states,t_matrix)
+    for i in range(10):
+        print(sm.transitioner())
