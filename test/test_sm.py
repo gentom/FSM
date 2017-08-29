@@ -9,9 +9,9 @@ def state2():
 def state3():
     print('State3: state3() is called')
 
-if __name__ == '__main__':
-    states = ['state1','state2','state3']
-    t_matrix = [0.6,0.2,0.2]
-    sm = StateMachine(states,t_matrix)
-    for i in range(10):
-        eval(sm.transitioner())()
+
+states = ['state1','state2','state3']
+t_matrix = [0.6,0.2,0.2]
+sm = StateMachine(states,t_matrix)
+for i in range(10):
+    eval(sm.transitioner())()
